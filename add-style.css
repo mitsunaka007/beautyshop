@@ -1,0 +1,1977 @@
+/* -------------------------------------------------------------------------- */
+/*	0. CSS Reset - START
+/* -------------------------------------------------------------------------- */
+
+
+/* *{
+    outline: 2px red solid;
+} */
+html,
+body {
+    border: none;
+	margin: 0;
+	padding: 0;
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+address,
+big,
+cite,
+code,
+em,
+font,
+img,
+small,
+strike,
+sub,
+sup,
+li,
+ol,
+ul,
+fieldset,
+form,
+label,
+legend,
+button,
+table,
+caption,
+tr,
+th,
+td {
+	border: none;
+	font-size: inherit;
+	line-height: inherit;
+	margin: 0;
+	padding: 0;
+	text-align: inherit;
+}
+
+blockquote::before,
+blockquote::after {
+	content: "";
+}
+
+/* -------------------------------------------------------------------------- */
+/*	0. CSS Reset - END
+/* -------------------------------------------------------------------------- */
+.site-header {
+    background-color: white;
+}
+.site-branding {
+    display: none;
+}
+
+.site-logo img{
+    mix-blend-mode: multiply;
+    width: 60px;
+    height: 60px;
+}
+.site-logo img:hover .hamburger {
+    pointer-events: none;
+}
+.bookmark-size {
+    font-size: 1.2em;
+}
+/* ハンバーガーメニューのCSS - START */
+#header{
+    width: 100%;
+    height: 50px;
+}
+.main-navigation ul {
+    display: block !important;
+}
+.fixedhamburger {
+    position: fixed;
+    display: inline-block;
+    top: 0;
+    right: 10%;
+    width: 4%;
+    z-index: 1000;
+}
+.fixedhamburger.change {
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.wrapper {
+    position: relative;
+    background: #f5f5f5;
+}
+.hamburger {
+    width: 100%;
+    height: 50px;
+    background: rgba(255,255,255,0);
+    padding-top: 15px;
+    padding-right: 10%;
+    /* padding-right: 15px; */
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    z-index: 999;
+}
+.hamburger:hover {
+    cursor: pointer;
+}
+.hamburger span {
+    background: #444444;
+    width: 25px;
+    height: 2px;
+    position: absolute;
+    transition: 0.3s ease-out;
+}
+.hamburger span:nth-of-type(1) {
+    top: 15px;
+}
+.hamburger span:nth-of-type(3) {
+    bottom: 15px;
+}
+/* ハンバーガーメニューにactiveクラスがついたときのスタイル */
+.hamburger.active span:nth-of-type(1) {
+    transform: translateY(9px) rotate(-45deg);
+    transition: 0.3s ease-out;
+}
+.hamburger.active span:nth-of-type(3) {
+    transform: translateY(-9px) rotate(45deg);
+    transition: 0.3s ease-out;
+}
+.hamburger.active span:nth-of-type(2) {
+    opacity: 0;
+}
+.hamburger.active span {
+    background: #FFFFFF;
+}
+/* メニュー */
+.menu {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #FFE8EC, #FF8298);
+    color: #444444;
+    position: absolute;
+    padding-top: 0;
+    transform: translate(-100%);
+    transition: 0.3s ease-out;
+    z-index: 100;
+}
+.menu ul {
+    list-style: none;
+}
+.menu li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.menu li a {
+    text-decoration: none;
+    color: #444444;
+}
+.menu li a span {
+    display: inline-block;
+}
+.menu li a:hover {
+    color: #FFFFFF;
+}
+.menu li a:hover span {
+    transition: .7s;
+    -webkit-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+}
+/* menu class="open"がついたときのスタイル-START */
+.menu.open {
+    width:100%;
+    height: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(0);
+    transition: 0.3s ease-out;
+}
+.menu.open ul {
+    width: 100%;
+}
+.menu-inner {
+    float: left;
+    width: 100%;
+    height: 100vh;
+}
+.menu-inner-boxs {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.fixedhamburger.change .menu-inner-boxs {
+    opacity: 1;
+}
+
+.menu-inner-box h2 {
+    font-size:18px;
+    text-align: center;
+}
+.menu-inner-box ul {
+    list-style: none;
+}
+.menu-inner-box li {
+    width: 70%;
+    padding-left: 15px;
+}
+.menu-inner-a a {
+    position: relative;
+    display: inline-block;
+    transition: .3s;
+}
+.menu-inner-a a:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: .3s;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.menu-inner-a a:hover::after {
+    width: 100%;
+}
+/* ハンバーガーメニューのCSS - START */
+
+/* header-home.php カテゴリー=headerimgをスライダー表示するCSS - START */
+.slider-2 .slick-slide {
+    width: auto;
+    height: 40vw;
+    position: relative;
+    overflow: hidden;
+}
+.slider-2 .slick-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.slider-2 .slick-arrow {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 0;
+    position: absolute;
+    top: 180px;
+    z-index: 1;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+}
+.slider-2 .slick-arrow::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #09000d;
+    border-width: 3px 3px 0 0;
+    position: absolute;
+    top: 24px;
+    transform: rotate(45deg);
+}
+.slider-2 .slick-next {
+    right: 0;
+}
+.slider-2 .slick-prev {
+    left: 0;
+}
+.slider-2 .slick-next::before {
+    left: 20px;
+}
+.slider-2 .slick-prev::before {
+    border-width: 0 0 3px 3px;
+    right: 22px;
+}
+.dots-2 .slick-dots {
+    text-align: center;
+}
+.dots-2 .slick-dots li {
+    display: inline-block;
+}
+.dots-2 .slick-dots button {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+    font-size: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    background: #bcbcbc;
+    border-radius: 50%;
+}
+.dots-2 .slick-dots .slick-active button {
+    background: #0a467d;
+}
+img.slider-base {
+    opacity: 0.6;
+}
+img.slider-base:hover {
+    opacity: 1.0;
+}
+/* header-home.php カテゴリー=headerimgをスライダー表示するCSS - END */
+
+/* .parallax_content{
+    width: 100%;
+    height: 60vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+} */
+/*.parallax_img02 {
+    height: 50vh;
+}
+.parallax_img03 {
+    height: 50vh;
+}
+.parallax_img02::before {
+    background-image: url(http://mityu-ka.sakura.ne.jp/beautyshop/wp-content/uploads/2023/01/beautyshop-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    height: 50vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.parallax_img03::before {
+    background-image: url(http://mityu-ka.sakura.ne.jp/beautyshop/wp-content/uploads/2023/01/beautyshop-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    height: 50vh;
+    left: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+} */
+.parallax {
+    width: 100%;
+    height: 400px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.parallax_img02 {
+    background-image: url(http://mityu-ka.sakura.ne.jp/beautyshop/wp-content/uploads/2023/01/beautyshop-1.jpg);
+}
+.parallax_img03 {
+    background-image: url(http://mityu-ka.sakura.ne.jp/beautyshop/wp-content/uploads/2023/01/beautyshop-2.jpg);
+}
+.front_content{
+    width: 100%;
+    height: auto;40vh
+    padding: 50px;
+    background-color: #fff;
+}
+.front_content h2 {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    border-bottom: solid 4px #FFE8EC;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.insta-posts {
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.reserveContent {
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    background: linear-gradient(45deg, #FFE8EC, #FF8298);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.reserveContent h2 {
+    width: 40vw;
+    font-size: 1.2em;
+    color: #444444;
+    border-bottom: #444444 1px solid;
+    margin: 0 auto 30px auto;
+}
+.reserveContent p {
+    font-size: 1em;
+    color: #444444;
+    margin-bottom: 20px;
+}
+.reserveBtn {
+    width: 200px;
+    height: 40px;
+    background-color: #FFE8EC;
+    border-radius: 40px;
+    position: relative;
+}
+.reserveBtn a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #444444;
+    padding-top: 9px;
+    border-radius: 40px;
+    font-size: 1em;
+}
+.reserveBtn a:hover {
+    background-color: #FF8298;
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+    border-radius: 40px;
+    padding-top: 9px;
+    transition: all 0.3s ease-out;
+}
+.newsContent {
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: white;
+}
+.newsContent h2 {
+    width: 40vw;
+    font-size: 1.2em;
+    color: #444444;
+    border-bottom: #444444 1px solid;
+    margin: 0 auto 30px auto;
+}
+.newsContent ul li {
+    font-size: 1em;
+    color: #444444;
+}
+.newsBox-in {
+    width: 90%;
+    height: auto;
+    margin: 20px auto 20px auto;
+    padding: 20px;
+    border-radius: 30px;
+}
+.newsBox-thumb img {
+    width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+}
+.newsContent-title {
+    width: 100%;
+    height: auto;
+}
+.newsContent-title a {
+    font-size: 1.1em;
+    text-align: center;
+    color: #444444;
+    text-decoration: none;
+    border-bottom: solid 1px #FFE8EC;
+}
+.newsContent-title p {
+    text-align: center;
+    font-size: 0.8em;
+}
+/* .parallax_content.img_bg_01{
+    background-image: url(http://mityu-ka.sakura.ne.jp/beautyshop/wp-content/uploads/2023/01/salon-1.jpg.jpg);
+} */
+.common {
+    cursor: pointer;
+    transition: all .7s;
+}
+.wrap-flex {
+    display : grid;
+    width   : 100%;
+    height  : 100%;
+    grid-template-columns: repeat(5, auto);
+    overflow: hidden;
+}
+.wrap-flex img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+.wrap-flex img:hover {
+    opacity: 1.0;
+}
+/* .parallax_content.img_bg_02{
+    background-image: url(http://mityu-ka.sakura.ne.jp/beautyshop/wp-content/uploads/2023/01/beautyshop-1.jpg);
+    background-size:cover;
+} */
+/* .parallax_content.img_bg_03{
+    background-image: url(http://mityu-ka.sakura.ne.jp/beautyshop/wp-content/uploads/2023/01/beautyshop-2.jpg);
+    background-size:cover;
+} */
+.flex h2 {
+    text-align: center;
+}
+/*テキストコンテンツを下からふわっと表示させるフェードインのCSS*/
+/* fadeUp */
+
+.fadeUp{
+    animation-name:fadeUpAnime;
+    animation-duration:2.5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+}
+
+@keyframes fadeUpAnime{
+    from {
+    opacity: 0;
+    transform: translateY(100px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+.fadeUpTrigger{
+    opacity: 0;
+}
+.flex {
+    width: 100%;
+    height: auto;
+}
+.parallax_staff {
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.concepts {
+    width: 100%;
+    height: 50vh;
+}
+.concepts h2 {
+    font-size: 1.2em;
+    color: #444444;
+}
+.concepts p {
+    display: block;
+    width: 90%;
+    height: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+}
+.scroll-box {
+    width: 90%;
+    height: auto;
+}
+.scroll {
+    display         : flex;
+    justify-content : center;
+    width           : 100%;
+    height          : 600px;
+    overflow        : hidden;
+}
+.scroll-downbox {
+    float           : left;
+    width           : 50%;
+    height          : 600px;
+    margin          : auto;
+    /* padding         : 1%; */
+    text-align      : center;
+    background      : #fff;
+}
+.scroll-down {
+    width           : 100%;
+    height          : auto;
+    animation       : scrollAnimeDown 30s linear infinite 0.1s both;
+}
+.scroll-down img {
+    width           : auto;
+    height          : 300px;
+    object-fit      : contain;
+}
+@keyframes scrollAnimeDown{
+    from {
+        transform: translateY(-100%)
+    }
+    to {
+        transform: translateY(0)
+    }
+}
+.scroll-upbox {
+    float           : left;
+    width           : 50%;
+    height          : 600px;
+    margin          : auto;
+    /* padding         : 1%; */
+    text-align      : center;
+    background      : #fff;
+}
+.scroll-up {
+    width           : 100%;
+    height          : auto;
+    animation       : scrollAnimeUp 30s linear infinite 0.1s both;
+  }
+.scroll-up img{
+    width           : auto;
+    height          : 300px;
+    object-fit      : contain;
+}
+@keyframes scrollAnimeUp{
+    from {
+        transform: translateY(0)
+    }
+    to {
+        transform: translateY(-100%)
+    }
+}
+
+.shopDetail {
+    text-align: center;
+}
+.shopDetail ul {
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+    list-style-position: inside;
+}
+.shopDetail li {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.fa-twitter {
+    color: #1DA1F2;
+    font-size: 1em;
+}
+.fa-youtube {
+    color: #DA1725;
+    font-size: 1em;
+}
+.fa-line {
+    color: #00B900;
+    font-size: 1em;
+}
+.sns-space {
+    margin-left: 20px;
+}
+.staff-prof {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bookmark {
+    position: fixed;
+    display: inline-block;
+    top: 15px;
+    right: 20%;
+    width: 25px;
+    z-index: 1000;
+}
+.bookmark-size {
+    font-size: 1.4em;
+}
+.menu-inner-box {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.menu-inner-box h2 {
+    font-size: 1em;
+    margin-top:2%;
+}
+.front_content {
+    padding: 50px 10px 50px 10px;
+}
+/* .flex {
+    display: block;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+} */
+.parallax_staff {
+    width: 70%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.shopDetail {
+    text-align: center;
+}
+.shopDetail ul {
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+    list-style-position: inside;
+}
+.staff-prof {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.cutStyle {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+}
+.cutStyleBox {
+    float: left;
+    width: 100%;
+    height: 70vh;
+}
+.cutStyle-img img {
+    width: 80vw;
+    height: 60vh;
+    object-fit: cover;
+}
+.cutStyle-text {
+    width: 100%;
+    height: 10vh;
+}
+.cutStyle-text a {
+    text-decoration: none;
+    color: #444444;
+}
+.cutStyle-text h3 {
+    font-size: 1.2em;
+}
+.cutStyle-text p {
+    font-size: 1em;
+}
+.cutStyle-achieve {
+    width: 200px;
+    height: 40px;
+    background-color: #FFE8EC;
+    border-radius: 40px;
+    margin: 30px auto 30px auto;
+    display: block;
+    position: relative;
+}
+.cutStyle-achieve a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #444444;
+    padding-top: 9px;
+    border-radius: 40px;
+    font-size:1em;
+}
+.cutStyle-achieve a:hover {
+    background-color: #FF8298;
+    color: #FFFFFF;
+    border-radius: 40px;
+    transition: all 0.3s ease-out;
+}
+.cutImgbox {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.cutImg {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cutImg img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+.cutImg-text {
+    width: 100%;
+    height: auto;
+}
+.cutImg-text p {
+    font-size:1em;
+    border-bottom: solid 1px #FFE8EC;
+    text-align: center;
+}
+.cutImg-text a {
+    text-decoration: none;
+}
+.site-footer {
+    display: flex;
+    width: 100%;
+    height: auto;
+    /* height: 50vh; */
+    /* background-color: #FFE8EC; */
+    background: linear-gradient(45deg, #FFE8EC, #FF8298);
+}
+.site-info {
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 100%;
+    height: auto;
+}
+.site-map {
+    /* float: left; */
+    width: 100%;
+    height: auto;
+    /* height: 50vh; */
+    padding: 30px 20px 30px 20px;
+}
+.site-mapList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+.site-mapList li {
+    float: left;
+    margin: 20px;
+}
+.site-mapList li a {
+    text-decoration: none;
+    color: #444444;
+    font-size: 1em;
+    position: relative;
+    display: inline-block;
+    transition: .3s;
+}
+
+.site-mapList a:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 1px;
+    background-color: #444444;
+    transition: .3s;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.site-mapList a:hover::after {
+    width: 100%;
+}
+
+h2.footerHead {
+    font-size: 2em;
+    color: #444444;
+    text-align: center;
+}
+.lineHead {
+    text-align: center;
+}
+.preserve {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+.site-accessIn h2,.preserve h2 {
+    width: 30%;
+    text-align: center;
+    border-bottom: solid 2px black;
+    margin: 20px auto 10px auto;
+}
+.accessButton {
+    float: left;
+    position: relative;
+    width: 200px;
+    height: 42px;
+    background-color: #06C755;
+    margin:20px auto 20px auto;
+    border-radius: 4px;
+}
+.accessButton a {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    transform: translateY(-50%);
+    padding-top: 3%;
+}
+.accessButton span {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* header-home.php - ヘッダー画像のスライダー表示CSS START */
+.header-carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    height: auto;
+}
+.header-carousel img {
+    width: 100vw;
+    height: 50vh;
+    object-fit: contain;
+    scroll-snap-align: start;
+    position: relative;
+    z-index: 1;
+}
+.header-carousel::-webkit-scrollbar {
+    display: none;
+}
+/* header-home.php - ヘッダー画像のスライダー表示CSS END */
+
+/* Topへ戻るボタンのCSS - START */
+.pagetop {
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: .3s;
+    color: #444444;
+    background: #FFE8EC;
+    opacity: 0;
+}
+.pagetop:hover {
+    box-shadow: 0 0 10px #444444;
+    background-color: #FF8298;
+    color: #FFFFFF;
+    transition: all 0.3s ease-out;
+    z-index: 9999;
+}
+/* content-reserve.phpのCSS - START */
+.blur-img {
+    background-image: url(http://mityu-ka.sakura.ne.jp/beautyshop/wp-content/uploads/2023/01/reserve-002.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.reserve-img {
+    width: 100%;
+    height: 100vh;
+}
+.reserve-form {
+    width: 90vw;
+    height: 80vh;
+    padding: 10px;
+    /* padding: 4em; */
+    box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    background: inherit;
+    position: relative;
+    z-index: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.reserve-form::before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: inherit;
+    filter: blur(10px) brightness(90%);
+    content: '';
+    z-index: -1;
+}
+
+.reserve-form-header {
+    width: 100%;
+    height: 10vh;
+    position: relative;
+}
+.reserve-form-header h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    display: inline-block;
+    background: linear-gradient(45deg, #FF8298, #FFE8EC);
+    background: -webkit-linear-gradient(45deg, #FF8298, #FFE8EC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.form-column {
+    width: 100%;
+    height: auto;
+    border-bottom: #FFFFFF 1px solid;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    position: relative;
+}
+.form-column-label {
+    float:left;
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+}
+.form-space {
+    display: inline-block;
+    width: 120px;
+    height: auto;
+    text-align: center;
+}
+.form-column-label p {
+    font-size: 0.8em;
+    color: #444444;
+    text-align: left;
+}
+.form-column input {
+    float: left;
+    width: 50vw;
+    /* width: 200px; */
+    height: 50px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form-column select {
+    width: 50vw;
+    /* width: 200px; */
+    height: 50px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form-column-name {
+    font-size: 1.2em;
+    color: #444444;
+    text-align: center;
+}
+.form-column-date input {
+    text-align: center;
+}
+.form-column-course option {
+    text-align: center;
+}
+.form-column-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 70px;
+    border-bottom: #FFFFFF 1px solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.form-column-btn input {
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+.form-column-btn input:hover {
+    background: linear-gradient(45deg, #FFE8EC, #FF8298);
+    cursor: pointer;
+    animation       : reserveBtnAnime 3s ease;
+}
+@keyframes reserveBtnAnime{
+    from {
+        background-color: #FFE8EC;
+    }
+    to {
+        background-color: #FF8298;
+    }
+}
+/* content-reserve.phpのCSS - END */
+
+/* content-reservedone.phpのCSS - START */
+.reserve-result {
+    text-align: center;
+}
+p {
+    font-size: 1.2em;
+}
+.home-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.move-btn {
+    width           : 160px;
+    height          : 40px;
+    border-radius   : 4px;
+    background-color: #FFE8EC;
+    margin-top      : 50px;
+    margin-left     : auto;
+    margin-right    : auto;
+}
+.move-btn a {
+    text-decoration : none;
+    color           : #444444;
+    font-size       : 1em;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    width           : 100%;
+    height          : 100%;
+}
+.move-btn a:hover {
+    background      : linear-gradient(45deg, #FFE8EC, #FF8298);
+    cursor          : pointer;
+    animation       : reserveBtnAnime 3s ease;
+    border-radius   : 4px;
+}
+/* content-reservedone.phpのCSS - END */
+
+/* content-single.phpのCSS - START */
+/* タブレットのみ横並び。スマホは縦に並べる。 */
+.single-content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.single-thumbnail {
+    width: 80%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.single-text {
+    width: 80%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* content-single.phpのCSS - END */
+
+/* Topへ戻るボタンのCSS - END */
+@media screen and (min-width:481px){
+    .fixedhamburger {
+        right: 5%;
+    }
+    .hamburger {
+        padding-right: 5%;
+        /* padding-right: 15px; */
+    }
+    .bookmark {
+        right: 13%;
+    }
+    .bookmark-size {
+        font-size: 1.4em;
+    }
+    .menu-inner-box {
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+    .menu-inner-box h2 {
+        font-size: 1em;
+        margin-top:2%;
+    }
+    .slider-2 .slick-slide {
+        height: 40vw;
+    }
+    .slider-2 .slick-arrow {
+        width: 30px;
+        height: 30px;
+        top: 90px;
+    }
+    .reserve-form-header h2 {
+        font-size: 1.6em;
+    }
+    .reserveContent {
+        font-size: 1.4em;
+    }
+    .reserveContent p {
+        font-size: 0.85em;
+
+    }
+    .reserveBtn a {
+        padding-top: 9px;
+        font-size: 0.6em;
+    }
+    .reserve-form {
+        width: 90vw;
+        padding: 10px;
+    }
+    .form-column input {
+        width: 60vw;
+    }
+    .form-column select {
+        width: 60vw;
+    }
+    .form-column-label p {
+        text-align: left;
+    }
+    .concepts {
+        width: 100%;
+        height: 50vh;
+    }
+    .shopInfos {
+        display: block;
+        justify-content: center;
+        width: 90%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .shopMaps {
+        width:100%;
+        height: auto;
+    }
+    .shopMaps iframe {
+        width: 100%;
+        height: 40vh;
+    }
+    .shopDetail {
+        width:100%;
+        height: auto;
+        /* margin-left: auto;
+        margin-right: auto; */
+        text-align: center;
+    }
+    .shopDetail ul {
+        list-style: none;
+        display: inline-block;
+        justify-content: left;
+        text-align: left;
+        list-style-position: inside;
+    }
+    .newsContent-title {
+        font-size: 1em;
+        text-align: center;
+    }
+    .staff-prof {
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .cutImgbox {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+    }
+    .cutImg {
+        float: left;
+        width: 50%;
+        height: auto;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cutImg img {
+        width: 100%;
+        height: 30vh;
+        object-fit: cover;
+    }
+    .cutImg-text {
+        width: 100%;
+        height: auto;
+    }
+    .cutImg-text p {
+        font-size:1em;
+        border-bottom: solid 1px #FFE8EC;
+        text-align: center;
+    }
+    .cutImg-text a {
+        text-decoration: none;
+    }
+    .cutStyle {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        text-align: center;
+    }
+    .cutStyleBox {
+        float: left;
+        width: 100%;
+        height: 50vh;
+    }
+    .cutStyle-img img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+    .cutStyle-text {
+        width: 100%;
+        height: 5vh;
+    }
+    .cutStyle-text h3 {
+        font-size: 1.2em;
+        color: #444444;
+        /* text-align: center; */
+    }
+    .cutStyle-text p {
+        font-size: 1em;
+        color: #444444;
+        /* text-align: center; */
+    }
+}
+@media screen and (min-width:768px){
+    .fixedhamburger {
+        right: 5%;
+    }
+    .hamburger {
+        padding-right: 5%;
+        /* padding-right: 15px; */
+    }
+    .bookmark {
+        position: fixed;
+        display: inline-block;
+        top: 15px;
+        right: 13%;
+        width: 25px;
+        z-index: 1000;
+    }
+    .bookmark-size {
+        font-size: 1.6em;
+    }
+    .menu-inner-box {
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+    .menu-inner-box h2 {
+        font-size: 1em;
+        margin-top:2%;
+    }
+    .slider-2 .slick-slide {
+        height: 35vw;
+    }
+    .slider-2 .slick-arrow {
+        width: 40px;
+        height: 40px;
+        top: 100px;
+    }
+    .slider-2 .slick-arrow::before {
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        border: 1px solid #09000d;
+        border-width: 3px 3px 0 0;
+        position: absolute;
+        top: 15px;
+        transform: rotate(45deg);
+    }
+    .slider-2 .slick-next::before {
+        left: 12px;
+    }
+    .concepts {
+        width: 100%;
+        height: 50vh;
+    }
+    .reserveContent {
+        font-size: 1.5em;
+    }
+    .reserveContent p {
+        font-size: 0.7em;
+
+    }
+    .reserve-form-header h2 {
+        font-size: 1.7em;
+    }
+    .reserveBtn a {
+        padding-top: 10px;
+    }
+    .reserveBtn a:hover {
+        padding-top: 10px;
+    }
+    .reserve-form {
+        width: 80vw;
+        padding: 10px;
+    }
+    .form-column input {
+        width: 50vw;
+    }
+    .form-column select {
+        width: 50vw;
+    }
+    .form-column-label p {
+        text-align: center;
+    }
+    .wrap-flex {
+        display : grid;
+        width   : 100%;
+        height  : 100%;
+        grid-template-columns: repeat(5, auto);
+        overflow: hidden;
+    }
+    .wrap-flex img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+
+    }
+    .wrap-flex img:hover {
+        opacity: 1.0;
+        /* width: calc(100vh*0.8);
+        height: calc(100vw*0.8/3); */
+        /* transform: scale(1, 1) */
+    }
+    .newsContent-title h3 {
+        width: 60%;
+        font-size: 1.1em;
+        border-bottom: solid 1px #FFE8EC;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .newsBox-in {
+        float: left;
+        width: 50%;
+        height: auto;
+        /* height: 25vw; */
+        /* background-color: #FFE8EC; */
+        /* margin: 20px; */
+        padding: 20px;
+        border-radius: 30px;
+    }
+    .shopInfos {
+        width: 90%;
+        height: auto;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .shopMaps {
+        width: 100%;
+        height: auto;
+    }
+    .shopMaps iframe {
+        width: 100%;
+        height: 40vh;
+    }
+    .shopDetail {
+        width: 100%;
+        height: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .shopDetail li {
+        margin-top: 12px;
+        font-size: 1em;
+    }
+    .shopDetail li a {
+        text-decoration: none;
+        color: #444444;
+        font-size: 1em;
+    }
+    .shopDetail li a:hover {
+        border-bottom: #444444 1px solid;
+    }
+    .staff-prof {
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .flex {
+        width: 100%;
+        height: auto;
+    }
+    .parallax_staff {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 600px;
+        overflow: hidden;
+    }
+    .parallax_staff img {
+        float: left;
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+    }
+    .staff-prof {
+        float: left;
+        width: 50%;
+        height: auto;
+    }
+    .cutImgbox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cutImg {
+        float: left;
+        width: 40%;
+        height: 50vh;
+        padding: 10px;
+    }
+    .cutImg img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+    .cutImg-text {
+        width: 100%;
+        height: auto;
+    }
+    .cutImg-text p {
+        text-align: center;
+        font-size: 1em;
+    }
+    .cutStyle {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 10px 10px;
+        text-align: center;
+    }
+    .cutStyleBox {
+        width: 100%;
+        display: block;
+    }
+    .cutStyle-img img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+    .cutStyle-text {
+        width: 100%;
+        height: 5vh;
+    }
+    .cutStyle-text h3 {
+        font-size: 1.5em;
+        color: #444444;
+        /* text-align: center; */
+    }
+    /* content-single.phpのCSS - START */
+    .single-content {
+        width: 100%;
+        height: 100%;
+    }
+    .single-thumbnail {
+        width: 70%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .single-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .single-text {
+        width: 70%;
+        height: 20vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* content-single.phpのCSS - END */
+}
+@media screen and (min-width:1024px){
+    .fixedhamburger {
+        right: 5%;
+    }
+    .hamburger {
+        padding-right: 5%;
+        /* padding-right: 15px; */
+    }
+    .bookmark {
+        position: fixed;
+        display: inline-block;
+        top: 15px;
+        right: 10%;
+        width: 25px;
+        z-index: 1000;
+    }
+    .bookmark-size {
+        font-size: 1.8em;
+    }
+    .menu-inner-box {
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+    .menu-inner-box h2 {
+        font-size: 1em;
+        margin-top:2%;
+    }
+    .slider-2 .slick-slide {
+        height: 30vw;
+    }
+    .slider-2 .slick-arrow {
+        width: 60px;
+        height: 60px;
+        top: 120px;
+    }
+    .concepts {
+        width: 100%;
+        height: 30vh;
+    }
+    .reserveContent {
+        font-size: 1.6em;
+    }
+    .reserveContent p {
+        font-size: 0.625em;
+
+    }
+    .reserve-form-header h2 {
+        font-size: 1.9em;
+    }
+    .reserveBtn a {
+        padding-top: 8px;
+        font-size: 0.6em;
+    }
+    .reserveBtn a:hover {
+        padding-top: 8px;
+    }
+    /* content-reserve.phpのCSS - START */
+    .reserve-form {
+        width: 70vw;
+        padding:10px;
+    }
+    .form-column input {
+        width: 40vw;
+    }
+    .form-column select {
+        width: 40vw;
+    }
+    .form-column-label p {
+        text-align: center;
+    }
+    /* content-reserve.phpのCSS - END */
+    .wrap-flex {
+        display : grid;
+        width   : 100%;
+        height  : 100%;
+        grid-template-columns: repeat(5, auto);
+        overflow: hidden;
+    }
+    .wrap-flex img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+    }
+    .wrap-flex img:hover {
+        opacity: 1.0;
+    }
+    .newsContent-title a {
+        font-size: 1.5em;
+    }
+    .newsContent-title h3 {
+        width: 80%;
+        border-bottom: solid 2px #FFE8EC;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .flex {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+    }
+    .parallax_staff {
+        float: left;
+        width: 30%;
+        height: auto;
+        padding: 10px;
+    }
+    .parallax_staff img {
+        object-fit: contain;
+        width: 100%;
+        height: 500px;
+    }
+    .shopInfos {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .shopMaps {
+        float: left;
+        width: 40%;
+        height: auto;
+    }
+    .shopMaps iframe {
+        width: 100%;
+        height: 40vh;
+    }
+    .shopCalender {
+        width: 20%;
+        height: 40vh;
+    }
+    .shopDetail {
+        float: left;
+        width: 20%;
+        height: auto;
+        padding: 10px;
+    }
+    .staff-prof {
+        width: 100%;
+        height: 150px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .cutImgbox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+    }
+    .cutImg {
+        float: left;
+        width: 30%;
+        height: 600px;
+        padding: 10px;
+        overflow: hidden;
+    }
+    .cutImg img {
+        width: 100%;
+        height: 500px;
+        object-fit: contain;
+    }
+    .cutImg-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+    }
+    .cutImg-text a {
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+        text-decoration: none;
+    }
+    .cutStyle {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 10px 10px;
+        text-align: center;
+    }
+    .cutStyleBox {
+        width: 100%;
+        display: block;
+    }
+    .cutStyle-img img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+    .cutStyle-text {
+        width: 100%;
+        height: 5vh;
+    }
+    .cutStyle-text h3 {
+        font-size: 1.5em;
+        color: #444444;
+        /* text-align: center; */
+    }
+/* content-single.phpのCSS - START */
+    .single-content {
+        width: 100%;
+        height: 100%;
+    }
+    .single-thumbnail {
+        width: 70%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .single-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .single-text {
+        width: 70%;
+        height: 20vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* content-single.phpのCSS - END */
+}
+
+@media screen and (min-width: 1920px){
+    .fixedhamburger {
+        right: 5%;
+    }
+    .hamburger {
+        padding-right: 5%;
+        /* padding-right: 15px; */
+    }
+    .bookmark {
+        right: 10%;
+    }
+    .bookmark-size {
+        font-size: 2em;
+    }
+    .slider-2 .slick-slide {
+        height: 25vw;
+    }
+    .concepts {
+        width: 100%;
+        height: 30vh;
+    }
+    .reserveContent {
+        font-size: 2em;
+    }
+    .reserveContent p {
+        font-size: 0.625em;
+
+    }
+    .reserve-form-header h2 {
+        font-size: 2em;
+    }
+    .reserveBtn a {
+        padding-top: 6px;
+        font-size: 0.6em;
+    }
+    .reserveBtn a:hover {
+        padding-top: 6px;
+    }
+    .reserve-form {
+        width: 50vw;
+        padding: 4em;
+    }
+    .form-column input {
+        width: 30vw;
+    }
+    .form-column select {
+        width: 30vw;
+    }
+    .form-column-label p {
+        text-align: center;
+    }
+    .wrap-flex {
+        display : grid;
+        width   : 100%;
+        height  : 100%;
+        grid-template-columns: repeat(5, auto);
+        overflow: hidden;
+    }
+    .wrap-flex img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .wrap-flex img:hover {
+        opacity: 1.0;
+        /* width: calc(100vh*0.8);
+        height: calc(100vw*0.8/3); */
+        /* transform: scale(1, 1) */
+    }
+    .cutStyle {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 10px 10px;
+        text-align: center;
+    }
+    .cutStyleBox {
+        width: 100%;
+        display: block;
+    }
+    .cutStyle-img img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+    .cutStyle-text {
+        width: 100%;
+        height: 5vh;
+    }
+    .cutStyle-text h3 {
+        font-size: 1.5em;
+        color: #444444;
+        /* text-align: center; */
+    }
+/* content-single.phpのCSS - START */
+    .single-content {
+        width: 100%;
+        height: 100%;
+    }
+    .single-thumbnail {
+        width: 70%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .single-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .single-text {
+        width: 70%;
+        height: 20vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* content-single.phpのCSS - END */
+}
+.slick-arrow {
+    display: none !important;
+}
+.slick-next {
+    display: none !important;
+}
+.slick-prev {
+    display: none !important;
+}
+.page {
+    margin-bottom: 0;
+}
